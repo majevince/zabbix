@@ -1,0 +1,31 @@
+---
+- name: Install Apache
+  dnf:
+    name:
+      - httpd
+      - httpd-tools
+      - mod_ssl
+    state: present
+
+- name: Starting Apache service
+  systemd:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: starting firewalld
+  systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: Opening Ports 80 and 443 for Apache.
+  firewalld:
+    port: "{{ item }}"
+    permanent: yes
+    state: enabled
+    immediate: true
+  notify: reload firewalld
+  loop:
+    "{{ srvs }}"
+  tags: openport

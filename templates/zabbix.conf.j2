@@ -1,0 +1,19 @@
+<?php
+// Zabbix GUI configuration file
+global $DB;
+
+$DB["TYPE"]                             = 'MYSQL';
+$DB["SERVER"]                   = '192.168.56.95';
+$DB["PORT"]                             = '0';
+$DB["DATABASE"]                 = 'zabbix';
+$DB["USER"]                             = 'zabbix';
+$DB["PASSWORD"]                 = '{{ dbpass }}';
+// SCHEMA is relevant only for IBM_DB2 database
+$DB["SCHEMA"]                   = '';
+
+$ZBX_SERVER                             = '192.168.56.95';
+$ZBX_SERVER_PORT                = '10051';
+$ZBX_SERVER_NAME                = 'Zabbix 2.0.6 PROD'; <-- Any name you want here
+
+$IMAGE_FORMAT_DEFAULT   = IMAGE_FORMAT_PNG;
+?>

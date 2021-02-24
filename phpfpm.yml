@@ -1,0 +1,26 @@
+---
+- name: Install PHPFM repos
+  dnf:
+    name: "http://rpms.remirepo.net/enterprise/remi-release-8.rpm"
+    disable_gpg_check: True
+    state: present
+
+- name: Enable the PHPFM repos
+  dnf:
+    name: "@php:remi-7.4"
+    state: present
+
+- name: Installing PHP packages
+  dnf:
+    name:
+      - php
+      - php-fpm
+      - php-gd
+      - php-mysqlnd
+    state: present
+
+- name: Starting the Php-fpm service
+  systemd:
+    name: php-fpm
+    state: started
+    enabled: yes

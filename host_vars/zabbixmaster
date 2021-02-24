@@ -1,0 +1,10 @@
+root_db_password: Macmill44@@
+dbname: zabbix
+dbuser: zabbix
+dbpass: zabbix
+srvs:
+  - 22/tcp
+  - 80/tcp
+  - 443/tcp
+  - 10051/tcp
+  - 10050/tcp
